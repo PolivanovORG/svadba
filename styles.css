@@ -231,6 +231,7 @@ ul {
     right: 10%;
     transform: rotate(15deg) scale(0.5);
     animation: float 7s ease-in-out infinite 1s;
+    scale: 0.9;
 }
 
 @keyframes float {

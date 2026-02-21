@@ -32,16 +32,39 @@
     <!-- Герой-секция -->
     <section class="hero" id="hero">
         <div class="hero-overlay"></div>
+        <div class="hero-sticker hero-sticker-left">
+            <img src="./images/ghibli11.png" alt="Украшение">
+        </div>
+        <div class="hero-sticker hero-sticker-right">
+            <img src="./images/ghibli22.png" alt="Украшение">
+        </div>
         <div class="hero-content">
             <p class="hero-subtitle animate-fade-in">Приглашаем на нашу свадьбу</p>
             <h1 class="hero-title animate-fade-in-delay">Евгений <span class="ampersand">&</span> Валентина</h1>
-            <p class="hero-names-small animate-fade-in-delay-2">Женя и Валя</p>
             <div class="hero-date animate-fade-in-delay-3">
                 <span class="date-day">13</span>
                 <span class="date-month">июля</span>
                 <span class="date-year">2026</span>
             </div>
             <p class="hero-location animate-fade-in-delay-4">Москва</p>
+            <div class="countdown animate-fade-in-delay-5" id="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-value" id="countdown-days">00</span>
+                    <span class="countdown-label">дней</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="countdown-hours">00</span>
+                    <span class="countdown-label">часов</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="countdown-minutes">00</span>
+                    <span class="countdown-label">минут</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="countdown-seconds">00</span>
+                    <span class="countdown-label">секунд</span>
+                </div>
+            </div>
             <a href="#schedule" class="btn-hero animate-fade-in-delay-5">Узнать подробности</a>
         </div>
         <div class="scroll-indicator">
@@ -178,7 +201,6 @@
                         <p>Или можете поддержать нас финансово — все средства пойдут на нашу мечту: путешествие</p>
                     </div>
                 </div>
-                <a href="https://forms.gle/DoU2pmPoQAryJngb9" target="_blank" class="btn-gift">Выбрать подарок</a>
             </div>
         </div>
     </section>
@@ -197,13 +219,13 @@
 
     <!-- Футер -->
     <footer class="footer">
-        <div class="container">
+        <div class="container-footer">
             <p class="footer-text">С любовью, Женя и Валя</p>
             <p class="footer-date">13.07.2026</p>
             <div class="footer-decoration">💕</div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

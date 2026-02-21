@@ -70,34 +70,36 @@ document.querySelectorAll('.animate-on-scroll').forEach(el => {
 // ========================================
 const rsvpForm = document.getElementById('rsvpForm');
 
-rsvpForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Сбор данных формы
-    const formData = new FormData(this);
-    const data = {
-        fullName: formData.get('fullName'),
-        attendance: formData.get('attendance'),
-        drink: formData.get('drink'),
-        comments: formData.get('comments')
-    };
-    
-    // Валидация
-    if (!data.fullName || !data.attendance || !data.drink) {
-        showNotification('Пожалуйста, заполните все обязательные поля', 'error');
-        return;
-    }
-    
-    // Здесь должна быть отправка данных на сервер
-    // Для демонстрации покажем успешное сообщение
-    console.log('Данные формы:', data);
-    
-    // Показываем сообщение об успехе
-    showSuccessMessage();
-    
-    // Очищаем форму
-    this.reset();
-});
+if (rsvpForm) {
+    rsvpForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Сбор данных формы
+        const formData = new FormData(this);
+        const data = {
+            fullName: formData.get('fullName'),
+            attendance: formData.get('attendance'),
+            drink: formData.get('drink'),
+            comments: formData.get('comments')
+        };
+
+        // Валидация
+        if (!data.fullName || !data.attendance || !data.drink) {
+            showNotification('Пожалуйста, заполните все обязательные поля', 'error');
+            return;
+        }
+
+        // Здесь должна быть отправка данных на сервер
+        // Для демонстрации покажем успешное сообщение
+        console.log('Данные формы:', data);
+
+        // Показываем сообщение об успехе
+        showSuccessMessage();
+
+        // Очищаем форму
+        this.reset();
+    });
+}
 
 // ========================================
 // Уведомления
@@ -324,9 +326,49 @@ document.addEventListener('DOMContentLoaded', () => {
             el.classList.add('visible');
         });
     }
-    
+
+    // Таймер обратного отсчёта
+    initCountdown();
+
     console.log('🎉 Сайт-приглашение на свадьбу Евгения и Валентины загружен!');
 });
+
+// ========================================
+// Таймер обратного отсчёта
+// ========================================
+function initCountdown() {
+    const countdownElement = document.getElementById('countdown');
+    if (!countdownElement) return;
+
+    const weddingDate = new Date('July 13, 2026 15:00:00').getTime();
+
+    const countdownInterval = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+
+        if (distance < 0) {
+            clearInterval(countdownInterval);
+            document.getElementById('countdown-days').textContent = '00';
+            document.getElementById('countdown-hours').textContent = '00';
+            document.getElementById('countdown-minutes').textContent = '00';
+            document.getElementById('countdown-seconds').textContent = '00';
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById('countdown-days').textContent = String(days).padStart(2, '0');
+        document.getElementById('countdown-hours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('countdown-minutes').textContent = String(minutes).padStart(2, '0');
+        document.getElementById('countdown-seconds').textContent = String(seconds).padStart(2, '0');
+    }, 1000);
+}
+
+// Запускаем таймер после загрузки DOM
+// initCountdown() вызывается в DOMContentLoaded
 
 // ========================================
 // Обработка изменения размера окна

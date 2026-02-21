@@ -415,8 +415,9 @@ ul {
 
 .timeline {
     position: relative;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto 80px;
+    padding: 40px 0;
 }
 
 .timeline::before {
@@ -424,20 +425,21 @@ ul {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    width: 2px;
+    width: 3px;
     height: 100%;
-    background: linear-gradient(to bottom, #8b7355, #d4c5b9, #8b7355);
+    background: linear-gradient(to bottom, #d4c5b9 0%, #8b7355 50%, #d4c5b9 100%);
+    border-radius: 3px;
 }
 
 .timeline-item {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
     position: relative;
     opacity: 0;
     transform: translateY(50px);
-    transition: all 0.8s ease;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .timeline-item.visible {
@@ -447,70 +449,84 @@ ul {
 
 .timeline-item:nth-child(odd) {
     justify-content: flex-start;
-    padding-left: calc(50% + 30px);
+    padding-left: calc(50% + 20px);
 }
 
 .timeline-item:nth-child(even) {
     justify-content: flex-end;
-    padding-right: calc(50% + 30px);
+    padding-right: calc(50% + 20px);
 }
 
 .timeline-time {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    background: #8b7355;
+    background: linear-gradient(135deg, #8b7355 0%, #a68b6c 100%);
     color: #fff;
-    padding: 8px 20px;
-    border-radius: 20px;
-    font-size: 0.95rem;
-    font-weight: 500;
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
     white-space: nowrap;
     z-index: 2;
+    box-shadow: 0 4px 15px rgba(139, 115, 85, 0.35);
+    letter-spacing: 1px;
 }
 
 .timeline-content {
-    background: #fafafa;
-    padding: 25px 30px;
-    border-radius: 15px;
-    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
-    max-width: 350px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+    padding: 30px 35px;
+    border-radius: 20px;
+    box-shadow: 0 8px 35px rgba(0, 0, 0, 0.08);
+    max-width: 360px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(212, 197, 185, 0.3);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #8b7355, #d4c5b9, #8b7355);
+}
+
+.timeline-emoji {
+    display: block;
+    font-size: 3rem;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    transition: all 0.3s ease;
+}
+
+.timeline-content:hover .timeline-emoji {
+    transform: scale(1.1);
+    filter: drop-shadow(0 4px 8px rgba(139, 115, 85, 0.3));
 }
 
 .timeline-content:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(139, 115, 85, 0.2);
+    border-color: rgba(139, 115, 85, 0.4);
 }
 
 .timeline-content h3 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     color: #2c2c2c;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
+    font-weight: 500;
+    font-family: 'Cormorant Garamond', serif;
 }
 
 .timeline-content p {
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: #666;
-    line-height: 1.5;
-}
-
-.timeline-icon {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 2rem;
-    background: #fff;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    z-index: 3;
-    top: 50%;
-    margin-top: -30px;
+    line-height: 1.7;
 }
 
 /* Место проведения */
@@ -903,14 +919,14 @@ ul {
 }
 
 .footer-date {
-    font-size: 1rem;
-    color: #8b7355;
+    font-size: 1.4rem;
+    color: #f3f2f0;
     letter-spacing: 2px;
     margin-bottom: 20px;
 }
 
 .footer-decoration {
-    font-size: 2rem;
+    font-size: 3rem;
     animation: heartbeat 1.5s infinite;
 }
 

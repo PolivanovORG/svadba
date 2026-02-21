@@ -23,7 +23,7 @@ jobs:
           port: 22
           # Деплоим всю папку (точка — текущая директория репозитория)
           # Исключаем служебные файлы, чтобы не засорять сервер
-          source: "." 
+          source: "index.html,styles.css,script.js,images/,fonts/"
           exclude: ".git,.github,node_modules,.env,*.md,.gitignore"
           target: "/var/www/u3416467/data/www/valkor.evgpol.ru"
           overwrite: true

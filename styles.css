@@ -712,6 +712,12 @@ ul {
     text-align: left;
 }
 
+.btn-gift-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
 .btn-gift {
     display: inline-block;
     background: linear-gradient(135deg, #8b7355 0%, #a68b6c 100%);
@@ -722,6 +728,7 @@ ul {
     letter-spacing: 1px;
     transition: all 0.3s ease;
     box-shadow: 0 10px 30px rgba(139, 115, 85, 0.3);
+
 }
 
 .btn-gift:hover {

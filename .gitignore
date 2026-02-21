@@ -1,0 +1,20 @@
+# Игнорируемые файлы
+.DS_Store
+Thumbs.db
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Секреты (не коммитьте!)
+*.pem
+*.key
+github_actions_key
+github_actions_key.pub
+
+# Временные файлы
+tmp/
+temp/

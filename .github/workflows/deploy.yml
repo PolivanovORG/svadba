@@ -1,0 +1,31 @@
+name: Deploy to reg.ru
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy via SSH
+        uses: appleboy/scp-action@v1.2.0  # Обновленная версия
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: 22
+          # Деплоим всю папку (точка — текущая директория репозитория)
+          # Исключаем служебные файлы, чтобы не засорять сервер
+          source: "." 
+          exclude: ".git,.github,node_modules,.env,*.md,.gitignore"
+          target: "/var/www/u3416467/data/www/valkor.evgpol.ru"
+          overwrite: true
+          # rm: true  <-- ЗАКОММЕНТИРОВАНО ДЛЯ БЕЗОПАСНОСТИ
+          debug: true  # Вывод логов для отладки, если что-то пойдет не так

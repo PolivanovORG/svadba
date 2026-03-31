@@ -736,13 +736,14 @@ ul {
 }
 
 .color-swatch {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    padding-bottom: 15px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -753,12 +754,11 @@ ul {
 }
 
 .color-swatch span {
-    font-size: 0.75rem;
+    font-size: 1rem;
     color: #666;
     background: rgba(255, 255, 255, 0.9);
-    padding: 3px 10px;
+    padding: 5px;
     border-radius: 10px;
-    white-space: nowrap;
 }
 
 /* ========================================
@@ -826,7 +826,7 @@ ul {
 }
 
 .gift-item p {
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: #4a4a4a;
     line-height: 1.6;
     text-align: left;
@@ -1143,12 +1143,12 @@ ul {
     }
 
     .color-palette {
-        gap: 15px;
+        gap: 25px;
     }
 
     .color-swatch {
-        width: 80px;
-        height: 80px;
+        width: 100px;
+        height: 100px;
     }
 
     .gift-item {

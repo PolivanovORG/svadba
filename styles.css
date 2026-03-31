@@ -1316,9 +1316,21 @@ ul {
         left: 20px;
     }
 
-    .hero-sticker-left,
+     .hero-sticker img {
+        max-width: 100px;
+    }
+
+    .hero-sticker-left {
+        left: 13%;
+        bottom: 50%;
+        transform: rotate(-10deg) ;
+    }
+
     .hero-sticker-right {
-        display: none;
+        right: 13%;
+        top: 30%;
+        transform: rotate(10deg) scaleX(-1) scale(0.7);
+        scale: 0.87;
     }
 }
 

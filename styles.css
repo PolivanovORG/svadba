@@ -1237,7 +1237,13 @@ ul {
     }
 
     .timeline-time {
-        left: 20px;
+        left: 40px;
+    }
+    .hero{
+        height: 105vh;
+    }
+    .scroll-indicator{
+        display: none;
     }
 }
 

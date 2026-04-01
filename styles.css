@@ -186,7 +186,7 @@ ul {
 ======================================== */
 .hero {
     position: relative;
-    height: 100vh;
+    height: 115vh;
     min-height: 700px;
     display: flex;
     align-items: center;
@@ -1240,10 +1240,15 @@ ul {
         left: 40px;
     }
     .hero{
-        height: 105vh;
+        height: 115vh;
     }
     .scroll-indicator{
         display: none;
+    }
+}
+@media (max-width: 375px) {
+    .hero{
+        height: 125vh;
     }
 }
 
